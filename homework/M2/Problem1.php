@@ -7,7 +7,7 @@ function processArray($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     echo "<br>Odds output:<br>";
     //note: use the $arr variable to iterate over, don't directly touch $a1-$a4
-    //TODO add logic here to echo out only odd values
+    $a=3;  if($a&1){echo 'odd';}else{echo 'even';} //returns 'odd'
 
 }
 echo "Problem 1: Odd Output<br>";
@@ -22,13 +22,13 @@ echo "Problem 1: Odd Output<br>";
     <tbody>
         <tr>
             <td>
-                <?php processArray($a1); ?>
+                <?php processArray($arr); ?>
             </td>
             <td>
-                <?php processArray($a2); ?>
+                <?php processArray($arr); ?>
             </td>
             <td>
-                <?php processArray($a3); ?>
+                <?php processArray($arr); ?>
             </td>
             <td>
                 <?php processArray($a4); ?>
