@@ -7,7 +7,7 @@ function processArray($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     echo "<br>Odds output:<br>";
  //edited by pd438,09/25/2023
-    foreach($arr as $num) if($num % 2 == 1) {echo "It's odd";}//returns 'odd' for loop in php
+    foreach($arr as $num) if($num % 2 == 1) {echo "$num";}//returns 'odd' for loop in php
 }
 echo "Problem 1: Odd Output<br>";
 ?>
