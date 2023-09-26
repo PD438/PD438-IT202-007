@@ -6,9 +6,10 @@ $a4 = [10.01, -12.22, 0.23, 19.20, -5.13, 3.12];
 function getTotal($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     $total = 0.00;
-    //note: use the $arr variable, don't directly touch $a1-$a4
-    //TODO do adding here
-    //TODO do rounding stuff here (round to two decimals i.e., 0.10, 0.01, 0.00)
+    //note: use the $arr variable, don't directly touch $a1-$a4 edited by pd438, 09/25/2023
+    foreach($arr as $num) 
+        {$total +=$num;}
+    number_format($total,2,".",""); 
     echo "The total is " . var_export($total, true);
 }
 echo "Problem 2: Adding Floats<br>";
@@ -23,16 +24,16 @@ echo "Problem 2: Adding Floats<br>";
     <tbody>
         <tr>
             <td>
-                <?php getTotal($arr) ?>
+                <?php getTotal($a1) ?>
             </td>
             <td>
-                <?php getTotal($arr) ?>
+                <?php getTotal($a2) ?>
             </td>
             <td>
-                <?php getTotal($arr) ?>
+                <?php getTotal($a3) ?>
             </td>
             <td>
-                <?php getTotal($arr); ?>
+                <?php getTotal($a4); ?>
             </td>
         </tr>
 </table>

@@ -4,14 +4,14 @@ $a2 = [-1, 1, -2, 2, 3, -3, -4, 5];
 $a3 = [-0.01, -0.0001, -.15];
 $a4 = ["-1", "2", "-3", "4", "-5", "5", "-6", "6", "-7", "7"];
 
-function bePositive($arr) {
+function bePositive($arr){}
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     echo "<br>Positive output:<br>";
-    //note: use the $arr variable, don't directly touch $a1-$a4
-    //TODO use echo to output all of the values as positive (even if they were originally positive) and maintain the original datatype
-    //hint: may want to use var_dump() or similar to show final data types
-}
-echo "Problem 3: Be Positive<br>";
+    foreach($arr as $num)
+    if (is_numeric($num)){}
+        echo abs($num);
+
+        echo "Problem 3: Be Positive<br>";
 ?>
 <table>
     <thread>

@@ -6,9 +6,8 @@ $a4 = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 function processArray($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     echo "<br>Odds output:<br>";
-    //note: use the $arr variable to iterate over, don't directly touch $a1-$a4
-    $a=3;  if($a&1){echo 'odd';}else{echo 'even';} //returns 'odd'
-
+ //edited by pd438,09/25/2023
+    foreach($arr as $num) if($num % 2 == 1) {echo "It's odd";}//returns 'odd' for loop in php
 }
 echo "Problem 1: Odd Output<br>";
 ?>
@@ -22,13 +21,13 @@ echo "Problem 1: Odd Output<br>";
     <tbody>
         <tr>
             <td>
-                <?php processArray($arr); ?>
+                <?php processArray($a1); ?>
             </td>
             <td>
-                <?php processArray($arr); ?>
+                <?php processArray($a2); ?>
             </td>
             <td>
-                <?php processArray($arr); ?>
+                <?php processArray($a3); ?>
             </td>
             <td>
                 <?php processArray($a4); ?>
