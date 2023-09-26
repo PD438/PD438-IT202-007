@@ -1,0 +1,54 @@
+<table><tr><td> <em>Assignment: </em> IT202 M2 PHP-HW</td></tr>
+<tr><td> <em>Student: </em> Paulo Duarte (pd438)</td></tr>
+<tr><td> <em>Generated: </em> 9/25/2023 10:52:54 PM</td></tr>
+<tr><td> <em>Grading Link: </em> <a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-007-F23/it202-m2-php-hw/grade/pd438" target="_blank">Grading</a></td></tr></table>
+<table><tr><td> <em>Instructions: </em> <p>Make sure you have the dev/prod branches created before starting this assignment.</p><p><strong>Template Files</strong>&nbsp;You can find all 3 template files in this gist:&nbsp;<a href="https://gist.github.com/MattToegel/48b48377eaa1937c886b7840c449750a">https://gist.github.com/MattToegel/48b48377eaa1937c886b7840c449750a</a><br></p><p>Setup steps:</p><ol><li><code>git checkout dev</code></li><li><code>git pull origin dev</code></li><li><code>git checkout -b M2-PHP-HW</code></li></ol><p>You'll have 3 problems to save for this assignment.</p><p>Each problem you're given a template&nbsp;<strong>Do not edit anything in the template except where the comments tell you to</strong>.</p><p>The templates are done in such a way to make it easier to capture the output in a screenshot (if it's still not able to fit well, you can zoom out in your browser).</p><p>You'll copy each template into their own separate .php files, immediately git add, git commit these files (you can do it together) so we can capture the difference/changes between the templates and your additions. This part is required for full credit.</p><p>HW steps:</p><ol><li>Open VS Code at the root of your repository folder (you should see the Procfile and all from the Heroku setup)</li><li>In VS Code create a new folder/directory in public_html called M2</li><li>Create 3 new files in this new M2 folder (problem1.php, problem2.php, problem3.php)</li><li>Paste each template into their respective files</li><li><code>git add .</code></li><li><code>git commit -m "adding template baselines</code></li><li>Do the related work (you may do steps 8 and 9 as often as needed or you can do it all at once at the end)</li><li><code>git add .</code></li><li><code>git commit -m "completed hw"</code></li><li>When you're done push the branch<ol><li><code>git push origin M2-PHP-HW</code></li></ol></li><li>Go to heroku dev, and manually deploy the M2-PHP-HW branch</li><li>After it deploys go to&nbsp;<a href="https://ucid-dev.herokuapp.com/M2/problem1.php">https://ucid-dev.herokuapp.com/M2/problem1.php</a>&nbsp;(replace ucid with your ucid if you followed the setup instructions)</li><li>Update the URL to check that each problem file displays properly</li><li>Create the Pull Request with&nbsp;<strong>dev</strong>&nbsp;as base and&nbsp;<strong>M2-PHP-HW</strong>&nbsp;as compare</li><li>Create a new file in the M2 folder in VS Code called m2_submission.md</li><li>Fill out the below deliverable items, save the submission, and copy to markdown<ol><li>For this assignment you may get screenshots from your heroku dev instance, you do not need to move it to prod then come back and update it</li></ol></li><li>Paste the markdown into the m2_submission.md</li><li>add/commit/push the md file<ol><li><code>git add m2_submission.md</code></li><li><code>git commit -m "adding submission file"</code></li><li><code>git push origin M2-PHP-HW</code></li></ol></li><li>Merge the pull request from step 14</li><li>Create a new pull request with prod as base and dev as compare</li><li>Immediately create/merge/confirm, this is just to deploy it to prod and you don't need to adjust anything during this step</li><li>On your local machine sync the changes<ol><li><code>git checkout dev</code></li><li><code>git pull origin dev</code></li></ol></li><li>Submit the link to the m2_submission.md file from the prod branch to Canvas</li></ol><p><br></p></td></tr></table>
+<table><tr><td> <em>Deliverable 1: </em> Problem 1 - Only output Odd values of the Array under "Odds output" </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 1 and show the edited code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.35.49Screenshot%202023-09-25%20223538.png.webp?alt=media&token=73f7c8a5-ee57-41bc-a084-5260e278de9c"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Code for problem 1<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.36.48Screenshot%202023-09-25%20223638.png.webp?alt=media&token=7ffdab4b-c689-4c0e-87f5-b8bec6270d73"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Result for Problem 1<br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>the odd values were chosen by using the for loop function.&nbsp; Then i<br>had to create for loop for each one to be looked at.&nbsp; so<br>that it would repeat the process to get the odd numbers.&nbsp;&nbsp;<br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 2: </em> Problem 2 - Only output the sum/total of the array values by assigning it to the $total variable (the number must end in 2 decimal places, if it ends in 1 it must have a 0 at the end) </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 2 showing the data and show the edited code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.05.36Screenshot%202023-09-25%20220415.png.webp?alt=media&token=6ec07b38-148f-45df-93b4-e23f170de1e6"/></td></tr>
+<tr><td> <em>Caption:</em> <p>results of image for problem 2<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.07.00Screenshot%202023-09-25%20220627.png.webp?alt=media&token=43d3094b-2d2f-4e7a-8516-d1291792ce97"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Code for problem 2 <br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>the total was the value that i was looking for once everything was<br>added up.&nbsp; So i created a for loop to get the total value<br>for each array and place them as a result.&nbsp; the rounding was because<br>it requested it to be in 2 decimal spots and adding a float<br>so that it would be placed correctly.&nbsp;<br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 3: </em> Problem 3 - Output the given values as positive under the "Positive Output" message (the data otherwise shouldn't change) </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 3 showing the data and show the code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.26.14Screenshot%202023-09-25%20222537.png.webp?alt=media&token=4368f235-056c-46cc-bf90-7f0ae5015375"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Be positive result<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-09-26T02.34.22Screenshot%202023-09-25%20223411.png.webp?alt=media&token=b21df04a-e66d-4f21-aaf9-08e7ff8c86cc"/></td></tr>
+<tr><td> <em>Caption:</em> <p>code for problem 3<br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>the way that the positive converison was done was to create an absolute<br>value for each one of the array&#39;s. Had to use a for loop<br>to look for each of the numbers and to receive it in an<br>absolute value.&nbsp;<br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 4: </em> Misc Items </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> Add the prod URL for problem1.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="http://localhost:3000/M2/problem1.php">http://localhost:3000/M2/problem1.php</a> </td></tr>
+<tr><td> <em>Sub-Task 2: </em> Add the prod URL for problem2.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="http://localhost:3000/M2/problem2.php">http://localhost:3000/M2/problem2.php</a> </td></tr>
+<tr><td> <em>Sub-Task 3: </em> Add the prod URL for problem3.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="http://localhost:3000/M2/problem3.php">http://localhost:3000/M2/problem3.php</a> </td></tr>
+<tr><td> <em>Sub-Task 4: </em> Pull Request URL for M2-PHP-HW to dev</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://github.com/PD438/PD438-IT202-007/pull/4">https://github.com/PD438/PD438-IT202-007/pull/4</a> </td></tr>
+<tr><td> <em>Sub-Task 5: </em> Talk about what you learned, any issues you had, how you resolve them</td></tr>
+<tr><td> <em>Response:</em> <p>i have learned that i am extremely unfamiliar with PHP.&nbsp; Def would love<br>to learn more about especially in outside of class.&nbsp; For me, this was<br>extremely grueling because of how localhost was not being cooperative.&nbsp;&nbsp;<br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td><em>Grading Link: </em><a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-007-F23/it202-m2-php-hw/grade/pd438" target="_blank">Grading</a></td></tr></table>
