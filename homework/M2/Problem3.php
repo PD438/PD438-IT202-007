@@ -9,10 +9,9 @@ function bePositive($arr){}
     echo "<br>Positive output:<br>";
     foreach($arr as $num){
         if(is_numeric($num)){
-    
+            echo abs($num);
         }
     }
-        echo abs($num);
 
         echo "Problem 3: Be Positive<br>";
 ?>
