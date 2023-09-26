@@ -4,7 +4,7 @@ $a2 = [-1, 1, -2, 2, 3, -3, -4, 5];
 $a3 = [-0.01, -0.0001, -.15];
 $a4 = ["-1", "2", "-3", "4", "-5", "5", "-6", "6", "-7", "7"];
 
-function bePositive($arr){}
+function bePositive($arr){
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     echo "<br>Positive output:<br>";
     foreach($arr as $num){
@@ -12,7 +12,7 @@ function bePositive($arr){}
             echo abs($num);
         }
     }
-
+}
         echo "Problem 3: Be Positive<br>";
 ?>
 <table>
