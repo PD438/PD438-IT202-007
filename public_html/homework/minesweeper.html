@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #board {
+      display: grid;
+      gap: 1px;
+      grid-template-columns: repeat(10, 30px);
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hidden {
+      background-color: #ddd;
+      color: #ddd;
+    }
+    .mine {
+      background-color: #f00;
+      color: #f00;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const board = document.getElementById('board');
+      const size = 10;
+      const mines = 20;
+      let mineLocations = [];
+
+      function initializeBoard() {
+        for (let i = 0; i < size * size; i++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell', 'hidden');
+          cell.setAttribute('data-index', i);
+          cell.addEventListener('click', handleCellClick);
+          board.appendChild(cell);
+        }
+        generateMines();
+      }
+
+      function generateMines() {
+        mineLocations = [];
+        while (mineLocations.length < mines) {
+          const mineIndex = Math.floor(Math.random() * (size * size));
+          if (!mineLocations.includes(mineIndex)) {
+            mineLocations.push(mineIndex);
+          }
+        }
+      }
+
+      function handleCellClick(event) {
+        const cellIndex = parseInt(event.target.getAttribute('data-index'));
+        if (mineLocations.includes(cellIndex)) {
+          revealMines();
+          alert('Game Over! You clicked on a mine.');
+        } else {
+          const mineCount = countAdjacentMines(cellIndex);
+          revealCell(event.target, mineCount);
+        }
+      }
+
+      function countAdjacentMines(cellIndex) {
+        const neighbors = [-size - 1, -size, -size + 1, -1, 1, size - 1, size, size + 1];
+        let count = 0;
+        for (const offset of neighbors) {
+          const neighborIndex = cellIndex + offset;
+          if (mineLocations.includes(neighborIndex)) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      function revealCell(cell, mineCount) {
+        cell.classList.remove('hidden');
+        cell.removeEventListener('click', handleCellClick);
+        if (mineCount > 0) {
+          cell.textContent = mineCount;
+        } else {
+          const cellIndex = parseInt(cell.getAttribute('data-index'));
+          const neighbors = [-size - 1, -size, -size + 1, -1, 1, size - 1, size, size + 1];
+          for (const offset of neighbors) {
+            const neighborIndex = cellIndex + offset;
+            const neighborCell = document.querySelector(`[data-index="${neighborIndex}"]`);
+            if (neighborCell && neighborCell.classList.contains('hidden')) {
+              revealCell(neighborCell, countAdjacentMines(neighborIndex));
+            }
+          }
+        }
+      }
+
+      function revealMines() {
+        mineLocations.forEach(index => {
+          const mineCell = document.querySelector(`[data-index="${index}"]`);
+          mineCell.classList.remove('hidden');
+          mineCell.classList.add('mine');
+        });
+      }
+
+      initializeBoard();
+    });
+  </script>
+</head>
+<body>
+  <div id="board"></div>
+</body>
+</html>
