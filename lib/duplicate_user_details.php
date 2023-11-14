@@ -1,23 +1,22 @@
 <?php
-//TODO 1: require db.php
-require_once(__DIR__ . "/db.php");
-//This is going to be a helper for redirecting to our base project path since it's nested in another folder
-//This MUST match the folder name exactly
-$BASE_PATH = '/project/';
-//TODO 4: Flash Message Helpers
-require(__DIR__ . "/flash_messages.php");
-
-//require safer_echo.php
-require(__DIR__ . "/safer_echo.php");
-//TODO 2: filter helpers
-require(__DIR__ . "/sanitizers.php");
-
-//TODO 3: User helpers
-require(__DIR__ . "/user_helpers.php");
-
-
-//duplicate email/username
-require(__DIR__ . "/duplicate_user_details.php");
-//reset session
-require(__DIR__ . "/reset_session.php");
-?>
+function users_check_duplicate($errorInfo)
+{
+    if ($errorInfo[1] === 1062) {
+        //https://www.php.net/manual/en/function.preg-match.php
+        //NOTE: this assumes your table name is `Users`, edit it accordingly
+        preg_match("/Users.(\w+)/", $errorInfo[2], $matches);
+        if (isset($matches[1])) {
+            flash("The chosen " . $matches[1] . " is not available.", "warning");
+        } else {
+            //TODO come up with a nice error message
+            flash("An unhandled error occurs", "danger");
+            //this will log the output to the terminal/console that's running the php server
+            error_log(var_export($errorInfo, true));
+        }
+    } else {
+        //TODO come up with a nice error message
+        flash("An unhandled error occurs", "danger");
+        //this will log the output to the terminal/console that's running the php server
+        error_log(var_export($errorInfo, true));
+    }
+}
