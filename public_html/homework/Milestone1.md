@@ -1,14 +1,16 @@
 <table><tr><td> <em>Assignment: </em> IT202 Milestone1 Deliverable</td></tr>
 <tr><td> <em>Student: </em> Paulo Duarte (pd438)</td></tr>
-<tr><td> <em>Generated: </em> 11/14/2023 12:22:08 AM</td></tr>
+<tr><td> <em>Generated: </em> 11/16/2023 5:03:59 PM</td></tr>
 <tr><td> <em>Grading Link: </em> <a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-007-F23/it202-milestone1-deliverable/grade/pd438" target="_blank">Grading</a></td></tr></table>
 <table><tr><td> <em>Instructions: </em> <ol><li>Checkout Milestone1 branch</li><li>Create a milestone1.md file in your Project folder</li><li>Git add/commit/push this empty file to Milestone1 (you'll need the link later)</li><li>Fill in the deliverable items<ol><li>For each feature, add a direct link (or links) to the expected file the implements the feature from Heroku Prod (I.e,&nbsp;<a href="https://mt85-prod.herokuapp.com/Project/register.php">https://mt85-prod.herokuapp.com/Project/register.php</a>)</li></ol></li><li>Ensure your images display correctly in the sample markdown at the bottom</li><ol><li>NOTE: You may want to try to capture as much checklist evidence in your screenshots as possible, you do not need individual screenshots and are recommended to combine things when possible. Also, some screenshots may be reused if applicable.</li></ol><li>Save the submission items</li><li>Copy/paste the markdown from the "Copy markdown to clipboard link" or via the download button</li><li>Paste the code into the milestone1.md file or overwrite the file</li><li>Git add/commit/push the md file to Milestone1</li><li>Double check the images load when viewing the markdown file (points will be lost for invalid/non-loading images)</li><li>Make a pull request from Milestone1 to dev and merge it (resolve any conflicts)<ol><li>Make sure everything looks ok on heroku dev</li></ol></li><li>Make a pull request from dev to prod (resolve any conflicts)<ol><li>Make sure everything looks ok on heroku prod</li></ol></li><li>Submit the direct link from github prod branch to the milestone1.md file (no other links will be accepted and will result in 0)</li></ol></td></tr></table>
 <table><tr><td> <em>Deliverable 1: </em> Feature: User will be able to register a new account </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707834-bf5a5b13-ec36-4597-9741-aa830c195be2.png"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add one or more screenshots of the application showing the form and validation errors per the feature requirements</td></tr>
 <tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-11-14T04.11.51Screenshot%202023-11-13%20231121.png.webp?alt=media&token=ffcab949-35c9-49f5-aa30-2add20070297"/></td></tr>
-<tr><td> <em>Caption:</em> (missing)</td></tr>
+<tr><td> <em>Caption:</em> <p>Invalid password<br></p>
+</td></tr>
 <tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-11-14T04.16.28image.png.webp?alt=media&token=a608c540-52ba-4b92-9b70-4a411940d8a1"/></td></tr>
-<tr><td> <em>Caption:</em> (missing)</td></tr>
+<tr><td> <em>Caption:</em> <p>Error Message<br></p>
+</td></tr>
 <tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-11-14T04.36.35Screenshot%202023-11-13%20233556.png.webp?alt=media&token=ce66c3f2-c0d1-47c1-9617-45273dfda1be"/></td></tr>
 <tr><td> <em>Caption:</em> (missing)</td></tr>
 <tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-11-14T04.42.47Screenshot%202023-11-13%20234147.png.webp?alt=media&token=ec6111f3-b6b0-4993-ac3b-211cd1dda630"/></td></tr>
@@ -146,13 +148,14 @@
 <tr><td> <em>Sub-Task 4: </em> Explain briefly how the process/code works (edit only)</td></tr>
 <tr><td> <em>Response:</em> <p>(missing)</p><br></td></tr>
 </table></td></tr>
-<table><tr><td> <em>Deliverable 9: </em> Issues and Project Board </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707834-bf5a5b13-ec36-4597-9741-aa830c195be2.png"></td></tr>
+<table><tr><td> <em>Deliverable 9: </em> Issues and Project Board </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshots showing which issues are done/closed (project board) Incomplete Issues should not be closed</td></tr>
-<tr><td><table><tr><td>Missing Image</td></tr>
-<tr><td> <em>Caption:</em> (missing)</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Fpd438%2F2023-11-16T22.01.15Screenshot%202023-11-16%20170053.png.webp?alt=media&token=ec19f0ea-dbde-45cd-8f15-2fc202bc34d7"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Screenshot of Project Board.  Please note that i have named some of<br>the pull request after my dog<br></p>
+</td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Include a direct link to your Project Board</td></tr>
-<tr><td>Not provided</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://github.com/users/PD438/projects/1/views/3">https://github.com/users/PD438/projects/1/views/3</a> </td></tr>
 <tr><td> <em>Sub-Task 3: </em> Prod Application Link to Login Page</td></tr>
 <tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202pd438-prod-23-ebfd5355f1ca.herokuapp.com/project/login.php">https://it202pd438-prod-23-ebfd5355f1ca.herokuapp.com/project/login.php</a> </td></tr>
 </table></td></tr>
