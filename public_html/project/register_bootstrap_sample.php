@@ -5,7 +5,7 @@ reset_session();
 <div class="container-fluid">
     <form onsubmit="return validate(this)" method="POST">
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" required class="form-control" />
         </div>
         <div class="mb-3">
