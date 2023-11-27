@@ -1,3 +1,7 @@
+function validateEmail(email) {     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.exec(email) !== null;
+ } 
+function validateUsername(username) {     return /^[a-z0-9_-]{3,16}$/.exec(username) !== null;  
+}
 function flash(message = "", color = "info") {
     let flash = document.getElementById("flash");
     //create a div (or whatever wrapper we want)
