@@ -1,4 +1,4 @@
-CREATE TABLE Nutrition (
+CREATE TABLE nutrition (
     NutritionID INT PRIMARY KEY,
     RecipeID INT,
     Name VARCHAR(50),

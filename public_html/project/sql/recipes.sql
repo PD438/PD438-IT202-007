@@ -1,4 +1,4 @@
-CREATE TABLE Recipes (
+CREATE TABLE recipes (
     RecipeID INT PRIMARY KEY,
     Title VARCHAR(255),
     ImageURL VARCHAR(255),
