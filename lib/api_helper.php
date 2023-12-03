@@ -1,5 +1,13 @@
 <?php
 require_once(__DIR__ . "/load_api_keys.php");
+
+try {
+    $response = get('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/', 'API_KEY', $data, true, 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com');
+    // Process the response
+} catch (Exception $e) {
+    // Handle exceptions (e.g., log the error, show a user-friendly message)
+    echo "Error: " . $e->getMessage();
+}
 /**
  * Send a request to the specified URL with the given method.
  * 
@@ -17,21 +25,23 @@ require_once(__DIR__ . "/load_api_keys.php");
 function _sendRequest($url, $key, $data = [], $method = 'GET', $isRapidAPI = true, $rapidAPIHost = "")
 {
     global $API_KEYS;
+
     // Check if the API key is set and not empty
     if (!isset($API_KEYS) || !isset($API_KEYS[$key]) || empty($API_KEYS[$key])) {
         throw new Exception("Missing or empty API KEY");
     }
-    $headers = [];
+
     if ($isRapidAPI) {
         $headers = [
             "X-RapidAPI-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "X-RapidAPI-Key" => "ce921b5120mshc87fd7963cf9bfdp1757a4jsn546e724a2a9d",
+            "X-RapidAPI-Key" => $API_KEYS[$key], // Use the Spoonacular API key
         ];
     } else {
         $headers = [
             "x-api-key" => $API_KEYS[$key]
         ];
     }
+
     $callback = fn(string $k, string $v): string => "$k: $v";
     $headers = array_map($callback, array_keys($headers), array_values($headers));
     $curl = curl_init();
@@ -83,7 +93,6 @@ function get($url, $key, $data = [], $isRapidAPI = true, $rapidAPIHost = "")
 {
     return _sendRequest($url, $key, $data, 'GET', $isRapidAPI, $rapidAPIHost);
 }
-
 
 /**
  * Send a POST request to the specified URL.

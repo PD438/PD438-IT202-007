@@ -1,5 +1,5 @@
 <?php 
-$env_keys = ["Culinary Truck"];
+$env_keys = ["API_KEY"];
 $ini = @parse_ini_file(".env");
 
 $API_KEYS = [];
