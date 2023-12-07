@@ -34,13 +34,13 @@ session_start();
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?php echo get_url('home.php'); ?>">Cat Adoption</a>
+        <a class="navbar-brand" href="<?php echo get_url('home.php'); ?>">Recipe Finder</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="<?php echo get_url('browse.php'); ?>">Browse</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo get_url('ViewRecipe.php'); ?>">View Recipe</a></li>
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
                 <?php endif; ?>
@@ -59,7 +59,10 @@ session_start();
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_cat_data.php'); ?>">Manage Cats</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/add_item.php'); ?>">Add Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_recipe_data.php'); ?>">Manage Recipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/edit_item.php'); ?>">Edit Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('search_form.php'); ?>">Search Recipe</a></li>
                 <?php endif; ?>
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>
