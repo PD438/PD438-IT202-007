@@ -1,7 +1,7 @@
 <?php
 //note we need to go up 1 more directory
 require(__DIR__ . "/../../../partials/nav.php");
-$TABLE_NAME = "RM_Items";
+$TABLE_NAME = "recipes";
 if (!has_role("Admin")) {
     flash("You don't have permission to view this page", "warning");
     //die(header("Location: $BASE_PATH/home.php"));
@@ -16,10 +16,10 @@ if (isset($_POST["submit"])) {
 //get the table definition
 $columns = get_columns($TABLE_NAME);
 //echo "<pre>" . var_export($columns, true) . "</pre>";
-$ignore = ["id", "modified", "created"];
+$ignore = ["id", "modified", "CreatedAt", "ModifiedAt", "created"];
 ?>
 <div class="container-fluid">
-    <h1>Add Item</h1>
+    <h1>Insert Item Here!</h1>
     <form method="POST">
         <?php foreach ($columns as $index => $column) : ?>
             <?php /* Lazily ignoring fields via hardcoded array*/ ?>

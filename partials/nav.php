@@ -59,7 +59,10 @@ session_start();
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/add_item.php'); ?>">Add Item</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_recipe_data.php'); ?>">Manage Recipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/edit_item.php'); ?>">Edit Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('search_form.php'); ?>">Search Recipe</a></li>
                 <?php endif; ?>
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>

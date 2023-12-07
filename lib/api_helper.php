@@ -1,13 +1,6 @@
 <?php
 require_once(__DIR__ . "/load_api_keys.php");
 
-try {
-    $response = get('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/', 'API_KEY', $data, true, 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com');
-    // Process the response
-} catch (Exception $e) {
-    // Handle exceptions (e.g., log the error, show a user-friendly message)
-    echo "Error: " . $e->getMessage();
-}
 /**
  * Send a request to the specified URL with the given method.
  * 
