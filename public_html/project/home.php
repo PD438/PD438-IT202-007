@@ -1,13 +1,13 @@
 <?php
 require(__DIR__."/../../partials/nav.php");
 ?>
-<h1>Home</h1>
+<h1>Welcome!!!</h1>
 <?php
 if(is_logged_in()){
     flash("Welcome, " . get_user_email());
 }
 else{
-    flash("You're not logged in");
+    flash("You're not logged in.  Log in Dude");
 }
 /*if(isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])){
  echo "Welcome, " . $_SESSION["user"]["email"]; 

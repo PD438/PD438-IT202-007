@@ -92,10 +92,10 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                         flash("Welcome, " . get_username());
                         die(header("Location: home.php"));
                     } else {
-                        flash("Invalid password");
+                        flash("Invalid password.  Please try again. ");
                     }
                 } else {
-                    flash("Email not found");
+                    flash("Email not correct. Please Try again");
                 }
             }
         } catch (Exception $e) {
