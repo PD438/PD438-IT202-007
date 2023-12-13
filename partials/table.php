@@ -1,4 +1,4 @@
-<?php if (isset($data)) : ?>
+?php if (isset($data)) : ?>
     <?php
     //setup some variables for readability
     $_extra_classes = se($data, "extra_classes", "", false);
@@ -49,7 +49,9 @@
         <?php if ($_header_override) : ?>
             <thead>
                 <?php foreach ($_header_override as $h) : ?>
-                    <th><?php se($h); ?></th>
+                    <?php if (!in_array($h, $_ignored_columns)) : ?>
+                        <th><?php se($h); ?></th>
+                    <?php endif; ?>
                 <?php endforeach; ?>
                 <?php if ($_has_atleast_one_url) : ?>
                     <th>Actions</th>
@@ -60,26 +62,31 @@
             <?php if (is_array($_data) && count($_data) > 0) : ?>
                 <?php foreach ($_data as $row) : ?>
                     <tr>
-                        <?php foreach (array_values($row) as $v) : ?>
-                            <?php if (!in_array($v, $_ignored_columns)) : ?>
+                        <?php foreach ($row as $k => $v) : ?>
+                            <?php if (!in_array($k, $_ignored_columns)) : ?>
                                 <td><?php se($v); ?></td>
                             <?php endif; ?>
                         <?php endforeach; ?>
+                        <?php $query_string = http_build_query($_GET); ?>
                         <?php if ($_has_atleast_one_url) : ?>
                             <td>
                                 <?php if ($_view_url) : ?>
-                                    <a href="<?php se($_view_url); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>" class="<?php se($_view_classes); ?>"><?php se($_view_label); ?></a>
+                                    <a href="<?php get_url($_view_url, true); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>&<?php se($query_string); ?>" class="<?php se($_view_classes); ?>"><?php se($_view_label); ?></a>
                                 <?php endif; ?>
                                 <?php if ($_edit_url) : ?>
-                                    <a href="<?php se($_edit_url); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>" class="<?php se($_edit_classes); ?>"><?php se($_edit_label); ?></a>
+                                    <a href="<?php get_url($_edit_url, true); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>&<?php se($query_string); ?>" class="<?php se($_edit_classes); ?>"><?php se($_edit_label); ?></a>
                                 <?php endif; ?>
                                 <?php if ($_delete_url) : ?>
-                                    <a href="<?php se($_delete_url); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>" class="<?php se($_delete_classes); ?>"><?php se($_delete_label); ?></a>
+                                    <a href="<?php get_url($_delete_url, true); ?>?<?php se($_primary_key_column); ?>=<?php se($row, $_primary_key_column); ?>&<?php se($query_string); ?>" class="<?php se($_delete_classes); ?>"><?php se($_delete_label); ?></a>
                                 <?php endif; ?>
                                 <?php if ($_post_self_form) : ?>
                                     <!-- TODO refactor -->
                                     <form method="POST">
                                         <input type="hidden" name="<?php se($_post_self_form, "name", $_primary_key_column); ?>" value="<?php se($row, $_primary_key_column); ?>" />
+                                        <?php $action = se($_post_self_form, "action", "", false); ?>
+                                        <?php if ($action) : ?>
+                                            <input type="hidden" name="action" value="<?php se($action); ?>" />
+                                        <?php endif; ?>
                                         <input type="submit" class="<?php se($_post_self_form, "classes"); ?>" value="<?php se($_post_self_form, "label", "Submit"); ?>" />
                                     </form>
                                 <?php endif; ?>
@@ -95,3 +102,8 @@
         </tbody>
     </table>
 <?php endif; ?>
+<style>
+    .table th {
+        text-transform: capitalize;
+    }
+</style>
