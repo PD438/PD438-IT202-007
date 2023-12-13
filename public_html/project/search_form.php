@@ -1,9 +1,7 @@
 <?php
+// Check if the session is not already started
 require_once(__DIR__ . "/../../partials/nav.php");
 
-echo "<pre>";
-var_dump($_SESSION['liked_recipes']);
-echo "</pre>";
 
 // Initialize the variable
 $resultCount = 0;
@@ -33,6 +31,44 @@ function make_request($url)
     } else {
         return $response;
     }
+}
+
+function insertLikedRecipe($db, $userId, $recipeId)
+{
+    try {
+        // Prepare the SQL statement
+        $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID, likes) VALUES (:user_id, :recipe_id, 1) ON DUPLICATE KEY UPDATE likes = likes + 1");
+
+        // Bind parameters
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->bindParam(':recipe_id', $recipeId);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Optionally, you can check the affected rows or get the last inserted ID
+        // $rowCount = $stmt->rowCount();
+        // $lastInsertId = $db->lastInsertId();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function getLikedRecipeDetails($db, $recipeId)
+{
+    // Prepare the SQL statement
+    $stmt = $db->prepare("SELECT * FROM liked_recipes WHERE RecipeID = :recipe_id");
+
+    // Bind parameters
+    $stmt->bindParam(':recipe_id', $recipeId);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Fetch the result
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -116,40 +152,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             echo "Error retrieving Spoonacular data. Response: " . $spoonacularResponse;
         }
     }
-}
-
-
-function insertLikedRecipe($db, $userId, $recipeId)
-{
-    try {
-        // Prepare the SQL statement
-        $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID, likes) VALUES (:user_id, :recipe_id, 1) ON DUPLICATE KEY UPDATE likes = likes + 1");
-
-        // Bind parameters
-        $stmt->bindParam(':user_id', $userId);
-        $stmt->bindParam(':recipe_id', $recipeId);
-
-        // Execute the statement
-        $stmt->execute();
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
-function getLikedRecipeDetails($db, $recipeId)
-{
-    // Prepare the SQL statement
-    $stmt = $db->prepare("SELECT * FROM liked_recipes WHERE RecipeID = :recipe_id");
-
-    // Bind parameters
-    $stmt->bindParam(':recipe_id', $recipeId);
-
-    // Execute the statement
-    $stmt->execute();
-
-    // Fetch the result
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    return $result;
 }
 
 require_once(__DIR__ . "/../../partials/footer.php");
