@@ -59,12 +59,12 @@ $recipes = fetchRecipesFromSpoonacular("ce921b5120mshc87fd7963cf9bfdp1757a4jsn54
                             <?php if (isset($recipe["summary"]) && !empty($recipe["summary"])) : ?>
                                 <p class="card-text"><?php echo $recipe["summary"]; ?></p>
                             <?php else : ?>
-                                <p class="card-text">Summary not available.</p>
+                                <p class="card-text">Click the link to find this Recipe and Other Recipes like these!!</p>
                             <?php endif; ?>
                             <?php if (isset($recipe["sourceUrl"]) && !empty($recipe["sourceUrl"])) : ?>
                                 <a href="<?php echo $recipe["sourceUrl"]; ?>" class="btn btn-primary">View</a>
                             <?php else : ?>
-                                <p>Recipe source URL not available.</p>
+                                <p>Want this Url Click Visit Spoonacular</p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ $recipes = fetchRecipesFromSpoonacular("ce921b5120mshc87fd7963cf9bfdp1757a4jsn54
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <p>No recipes found.</p>
+        <p></p>
     <?php endif; ?>
 </div>
 <?php require_once(__DIR__ . "/../../partials/footer.php"); ?>

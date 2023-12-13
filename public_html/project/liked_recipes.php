@@ -38,6 +38,22 @@ try {
     } else {
         echo "Dude go like some recipes.";
     }
+
+    // Form processing for unliking recipes
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['unlike'])) {
+        // Form submitted for unliking a recipe
+        $recipe_id_to_unlike = $_POST['recipe_id'];
+
+      // Include the "Unlike" button and the hidden field for recipe ID
+      echo "<form method='POST' action='liked_recipes.php'>";
+      echo "<input type='hidden' name='recipe_id' value='" . $recipe['RecipeID'] . "'>";
+      echo "<button type='submit' name='unlike'>Unlike This Recipe</button>";
+      echo "</form>";
+
+      echo "<hr>";
+        header("Location: liked_recipes.php");
+        exit;
+    }
 } catch (PDOException $e) {
     // Handle or log the exception
     echo 'Error: ' . $e->getMessage();
