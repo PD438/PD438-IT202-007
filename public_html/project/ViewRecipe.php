@@ -1,48 +1,56 @@
-<?php
-require(__DIR__ . "/../../partials/nav.php");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+</head>
+<body>
 
-// Include the function to make the API request
-require(__DIR__ . "C:/../../public_html/project/recipes.php");
+    <?php
+    require(__DIR__ . "/../../partials/nav.php");
+    require(__DIR__ . "C:/../../public_html/project/recipes.php");
 
-function getRecipesFromSpoonacular($apiKey) {// Initialize cURL session
-    $curl = curl_init();
+    function getRecipesFromSpoonacular($apiKey) {
+        $curl = curl_init();
+        $db = getDB();
+        curl_setopt_array($curl, [
+            // ... (your existing cURL options remain unchanged)
+        ]);
+        $result = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
 
-    // Set cURL options
-    curl_setopt_array($curl, [
-        CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=pasta&cuisine=italian&excludeCuisine=greek&diet=vegetarian&intolerances=gluten&equipment=pan&includeIngredients=tomato%2Ccheese&excludeIngredients=eggs&type=main%20course&instructionsRequired=true&fillIngredients=false&addRecipeInformation=false&titleMatch=Crock%20Pot&maxReadyTime=20&ignorePantry=true&sort=calories&sortDirection=asc&minCarbs=10&maxCarbs=100&minProtein=10&maxProtein=100&minCalories=50&maxCalories=800&minFat=10&maxFat=100&minAlcohol=0&maxAlcohol=100&minCaffeine=0&maxCaffeine=100&minCopper=0&maxCopper=100&minCalcium=0&maxCalcium=100&minCholine=0&maxCholine=100&minCholesterol=0&maxCholesterol=100&minFluoride=0&maxFluoride=100&minSaturatedFat=0&maxSaturatedFat=100&minVitaminA=0&maxVitaminA=100&minVitaminC=0&maxVitaminC=100&minVitaminD=0&maxVitaminD=100&minVitaminE=0&maxVitaminE=100&minVitaminK=0&maxVitaminK=100&minVitaminB1=0&maxVitaminB1=100&minVitaminB2=0&maxVitaminB2=100&minVitaminB5=0&maxVitaminB5=100&minVitaminB3=0&maxVitaminB3=100&minVitaminB6=0&maxVitaminB6=100&minVitaminB12=0&maxVitaminB12=100&minFiber=0&maxFiber=100&minFolate=0&maxFolate=100&minFolicAcid=0&maxFolicAcid=100&minIodine=0&maxIodine=100&minIron=0&maxIron=100&minMagnesium=0&maxMagnesium=100&minManganese=0&maxManganese=100&minPhosphorus=0&maxPhosphorus=100&minPotassium=0&maxPotassium=100&minSelenium=0&maxSelenium=100&minSodium=0&maxSodium=100&minSugar=0&maxSugar=100&minZinc=0&maxZinc=100&offset=0&number=10&limitLicense=false&ranking=2",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => [
-            "X-RapidAPI-Host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "X-RapidAPI-Key: ce921b5120mshc87fd7963cf9bfdp1757a4jsn546e724a2a9d", // Use the provided API key
-        ],
-    ]);
-
-    // Execute cURL request
-    $result = curl_exec($curl);
-    $err = curl_error($curl);
-
-    // Close cURL session
-    curl_close($curl);
-
-    // Process the API response
-    if (!$err) {
-        $decoded_response = json_decode($result, true);
-        return $decoded_response;
-    } else {
-        return [];
+        if (!$err) {
+            $decoded_response = json_decode($result, true);
+            return $decoded_response;
+        } else {
+            return [];
+        }
     }
-    // Your implementation here, possibly similar to your fetchRecipesFromSpoonacular function
-}
-// Make a request to Spoonacular API
- // You need to implement this function
-$spoonacularResponse = getRecipesFromSpoonacular("ce921b5120mshc87fd7963cf9bfdp1757a4jsn546e724a2a9d");
 
-?>
-<?php
-require_once(__DIR__ . "/../../partials/footer.php");
-?>
+    $spoonacularResponse = getRecipesFromSpoonacular("ce921b5120mshc87fd7963cf9bfdp1757a4jsn546e724a2a9d");
+    ?>
+
+    <h1>Want More??</h1>
+
+    <!-- Display the link to Spoonacular main site -->
+    <a href="https://spoonacular.com/" target="_blank">Visit Spoonacular</a>
+
+    <!-- Display a button to view a specific recipe -->
+    <?php
+    if (!empty($spoonacularResponse) && isset($spoonacularResponse['results'][0])) {
+        $recipeTitle = $spoonacularResponse['results'][0]['title'];
+        $recipeUrl = $spoonacularResponse['results'][0]['sourceUrl'];
+        echo '<button><a href="' . $recipeUrl . '" target="_blank">View Recipe: ' . $recipeTitle . '</a></button>';
+    } else {
+        echo '<p>No recipes found.</p>';
+    }
+    ?>
+
+    <?php
+    require_once(__DIR__ . "/../../partials/footer.php");
+    ?>
+
+</body>
+</html>
