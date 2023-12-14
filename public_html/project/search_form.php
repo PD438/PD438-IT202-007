@@ -33,26 +33,21 @@ function make_request($url)
     }
 }
 
-function insertLikedRecipe($db, $userId, $recipeId)
-{
-    try {
-        // Prepare the SQL statement
-        $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID, likes) VALUES (:user_id, :recipe_id, 1) ON DUPLICATE KEY UPDATE likes = likes + 1");
-
-        // Bind parameters
-        $stmt->bindParam(':user_id', $userId);
-        $stmt->bindParam(':recipe_id', $recipeId);
-
-        // Execute the statement
-        $stmt->execute();
-
-        // Optionally, you can check the affected rows or get the last inserted ID
-        // $rowCount = $stmt->rowCount();
-        // $lastInsertId = $db->lastInsertId();
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
+function insertLikedRecipe($userId, $recipeId)
+                            {
+                                $db = getDB();
+                        
+                                // Prepare the SQL statement
+                                $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID) VALUES (:user_id, :recipe_id)");
+                        
+                                // Bind parameters
+                                $stmt->bindValue(':user_id', $userId);
+                                $stmt->bindValue(':recipe_id', $recipeId);
+                        
+                                // Execute the statement
+                                $stmt->execute();
 }
+
 
 function getLikedRecipeDetails($db, $recipeId)
 {
@@ -159,10 +154,32 @@ require_once(__DIR__ . "/../../partials/footer.php");
 
 <!-- Add the HTML form for the search button -->
 <form method="GET">
-    <script>
+<script>
         function showNotification(message) {
             alert(message);  // You can replace this with a more sophisticated notification library
         }
+
+        function likeRecipe(recipeId) {
+        // Perform an AJAX request to the server to update the liked status
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Success: Show a notification
+                    showNotification('You liked this recipe!');
+                } else {
+                    // Handle any errors that occur during the AJAX request
+                    console.error('Error updating liked status:', xhr.statusText);
+                }
+            }
+        };
+
+        // Set up the AJAX request
+        xhr.open('POST', 'liked_recipe.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('recipe_id=' + recipeId);
+    }
     </script>
     <input type="text" name="search" placeholder="Search for recipes">
     <input type="text" name="cuisine" placeholder="Cuisine">
