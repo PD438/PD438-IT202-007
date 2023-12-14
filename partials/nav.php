@@ -44,6 +44,7 @@ session_start();
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('search_form.php'); ?>">Search Recipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('liked_recipes.php'); ?>">Recipes I Like</a></li>
                 <?php endif; ?>
                 <?php if (!is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('login.php'); ?>">Login</a></li>
@@ -52,18 +53,18 @@ session_start();
                 <?php if (has_role("Admin")) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Roles
+                            Admin Power
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="rolesDropdown">
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/create_role.php'); ?>">Create</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/list_roles.php'); ?>">List</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/add_item.php'); ?>">Add Item</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_recipe_data.php'); ?>">Manage Recipe</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/edit_item.php'); ?>">Edit Item</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/add_item.php'); ?>">Add Item</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_recipe_data.php'); ?>">Manage Recipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/edit_item.php'); ?>">Edit Item</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('search_form.php'); ?>">Search Recipe</a></li>
+
                 <?php endif; ?>
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>

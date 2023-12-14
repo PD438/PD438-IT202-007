@@ -23,17 +23,12 @@ require(__DIR__ . "/duplicate_user_details.php");
 require(__DIR__ . "/reset_session.php");
 
 require(__DIR__ . "/get_url.php");
-require(__DIR__ . "/give_gems.php"); //needs to be here
-
-
 require(__DIR__ . "/get_columns.php");
 require(__DIR__ . "/input_map.php");
 require(__DIR__ . "/save_data.php");
 require(__DIR__ . "/update_data.php");
 
-require(__DIR__ . "/score_helpers.php");
-
-
+require(__DIR__ . "/render_functions.php");
 
 require(__DIR__ . "/item_map.php");
 

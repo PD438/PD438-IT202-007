@@ -50,30 +50,29 @@ $recipes = fetchRecipesFromSpoonacular("ce921b5120mshc87fd7963cf9bfdp1757a4jsn54
     <p>Remember, we typically won't be frequently calling live data from our API; this is merely a quick sample. We'll want to cache data in our DB to save on API quota.</p>
     <?php if (!empty($recipes['results'])): ?>
         <div class="row">
-        <?php foreach ($recipes['results'] as $recipe) : ?>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="<?php echo $recipe["image"] ?? ''; ?>" class="card-img-top" alt="Recipe Image">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo $recipe["title"] ?? ''; ?></h5>
-                <?php if (isset($recipe["summary"])) : ?>
-                    <p class="card-text"><?php echo $recipe["summary"]; ?></p>
-                <?php else : ?>
-                    <p class="card-text">Summary not available.</p>
-                <?php endif; ?>
-                <?php if (isset($recipe["sourceUrl"])) : ?>
-                    <a href="<?php echo $recipe["sourceUrl"]; ?>" class="btn btn-primary">View</a>
-                <?php else : ?>
-                    <p>Recipe source URL not available.</p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-<?php endforeach; ?>
+            <?php foreach ($recipes['results'] as $recipe) : ?>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?php echo $recipe["image"] ?? ''; ?>" class="card-img-top" alt="Recipe Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $recipe["title"] ?? ''; ?></h5>
+                            <?php if (isset($recipe["summary"]) && !empty($recipe["summary"])) : ?>
+                                <p class="card-text"><?php echo $recipe["summary"]; ?></p>
+                            <?php else : ?>
+                                <p class="card-text">Click the link to find this Recipe and Other Recipes like these!!</p>
+                            <?php endif; ?>
+                            <?php if (isset($recipe["sourceUrl"]) && !empty($recipe["sourceUrl"])) : ?>
+                                <a href="<?php echo $recipe["sourceUrl"]; ?>" class="btn btn-primary">View</a>
+                            <?php else : ?>
+                                <p>Want this Url Click Visit Spoonacular</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <p>No recipes found.</p>
+        <p></p>
     <?php endif; ?>
 </div>
-
 <?php require_once(__DIR__ . "/../../partials/footer.php"); ?>
