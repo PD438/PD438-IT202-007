@@ -33,20 +33,6 @@ function make_request($url)
     }
 }
 
-function insertLikedRecipe($userId, $recipeId)
-                            {
-                                $db = getDB();
-                        
-                                // Prepare the SQL statement
-                                $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID) VALUES (:user_id, :recipe_id)");
-                        
-                                // Bind parameters
-                                $stmt->bindValue(':user_id', $userId);
-                                $stmt->bindValue(':recipe_id', $recipeId);
-                        
-                                // Execute the statement
-                                $stmt->execute();
-}
 
 
 function getLikedRecipeDetails($db, $recipeId)
@@ -108,6 +94,20 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                         } else {
                             echo "<a href='https://spoonacular.com/recipes/{$recipeId}' target='_blank'>View Recipe</a>";
                         }
+                        function insertLikedRecipe($userId, $recipeId)
+                        {
+                            $db = getDB();
+                    
+                            // Prepare the SQL statement
+                            $stmt = $db->prepare("INSERT INTO liked_recipes (user_id, RecipeID) VALUES (:user_id, :recipe_id)");
+                    
+                            // Bind parameters
+                            $stmt->bindValue(':user_id', $userId);
+                            $stmt->bindValue(':recipe_id', $recipeId);
+                    
+                            // Execute the statement
+                            $stmt->execute();
+}
 
                         // Check if the recipe is liked
                         if (in_array($recipeId, $likedRecipes)) {
