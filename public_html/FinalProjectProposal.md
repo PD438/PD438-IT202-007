@@ -12,6 +12,12 @@ Milestone1:**[**https://learn.ethereallab.app/homework/IT202-007-F23/it202-miles
 
 **Milestone3:** [**https://learn.ethereallab.app/homework/IT202-007-F23/it202-milestone-3-api-project**](https://learn.ethereallab.app/homework/IT202-007-F23/it202-milestone-3-api-project)
 
+**  
+Link to the Video:** [**https://www.youtube.com/watch?v=tbj1k8yuJPo**](https://www.youtube.com/watch?v=tbj1k8yuJPo)
+
+**  
+**
+
 **Website Link:**[**https://it202pd438-prod-23-ebfd5355f1ca.herokuapp.com/project/home.php**](https://it202pd438-prod-23-ebfd5355f1ca.herokuapp.com/project/home.php)
 
 **API Link:** [**https://rapidapi.com/spoonacular/api/recipe-food-nutrition**](https://rapidapi.com/spoonacular/api/recipe-food-nutrition)
